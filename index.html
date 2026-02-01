@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Amber Vilord</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Finnmark", sans-serif;
+      background: url("https://www.goodfreephotos.com/albums/united-states/colorado/other-colorado/rock-cliff-in-the-fog-in-colorado.jpg") repeat fixed center;
+      color: #ffffff;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.8);
+      min-height: 100vh;
+      padding-bottom: 40px;
+    }
+
+    .container {
+      width: 900px;
+      margin: 0 auto;
+      padding-top: 20px;
+    }
+
+    .header {
+      background: #111111;
+      border: 1px solid #444444;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      background: #333333;
+      border: 2px solid #777777;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+    }
+
+    .title-area h1 {
+      margin: 0 0 5px 0;
+      font-size: 26px;
+      letter-spacing: 1px;
+    }
+
+    .title-area p {
+      margin: 0;
+      font-size: 13px;
+      color: #cccccc;
+    }
+
+    .nav {
+      margin-top: 5px;
+      background: #222222;
+      border: 1px solid #555555;
+      padding: 8px 10px;
+      text-align: center;
+    }
+
+    .nav a {
+      color: #99ccff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .nav a:hover {
+      text-decoration: underline;
+      color: #ffffff;
+    }
+
+    .main {
+      display: flex;
+      margin-top: 15px;
+      gap: 15px;
+    }
+
+    .column-left {
+      width: 280px;
+    }
+
+    .column-right {
+      flex: 1;
+    }
+
+    .box {
+      background: #111111;
+      border: 1px solid #555555;
+      margin-bottom: 15px;
+    }
+
+    .box-header {
+      background: #333366;
+      padding: 6px 10px;
+      font-weight: bold;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .box-body {
+      padding: 10px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: 18px;
+      border-bottom: 1px solid #555555;
+      padding-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .section p {
+      margin-top: 8px;
+      white-space: pre-line;
+    }
+
+    ul {
+      margin-top: 8px;
+      padding-left: 18px;
+    }
+
+    .music-player {
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    .music-player span {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    #profile-audio {
+      transform: scale(0.85);
+      transform-origin: left top;
+    }
+
+    a.content-link {
+      color: #ffcc66;
+      text-decoration: none;
+    }
+
+    a.content-link:hover {
+      text-decoration: underline;
+      color: #ffffff;
+    }
+
+    .top5-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .top5-item {
+      position: relative;
+      background: #222222;
+      border: 1px solid #555555;
+      padding: 4px;
+      text-align: center;
+      font-size: 11px;
+      min-height: 160px;
+      overflow: hidden;
+    }
+
+    .top5-rank {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      background: #cc0000;
+      color: #ffffff;
+      font-size: 10px;
+      padding: 2px 5px;
+      font-weight: bold;
+    }
+
+    .top5-cover {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 4px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid #444444;
+    }
+
+    .top5-title {
+      font-weight: bold;
+      display: block;
+    }
+
+    .top5-author {
+      display: block;
+      color: #cccccc;
+      font-size: 10px;
+    }
+
+    .contact-icons {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(200, 200, 200, 0.25);
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .contact-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: #cccccc;
+    }
+
+    .contact-icon:hover {
+      background: rgba(200, 200, 200, 0.4);
+    }
+
+    @media (max-width: 950px) {
+      .container {
+        width: 95%;
+      }
+      .main {
+        flex-direction: column;
+      }
+      .column-left {
+        width: 100%;
+      }
+      .top5-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="container">
+      <div class="header">
+        <div class="profile-pic" style="background-image:url('https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/491996399_1211386623668695_6840019174607123719_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=gqt1tlFdoJcQ7kNvwHqvQb9&_nc_oc=AdnH7I0cRzEF0hIqX2kviqBKcO7cbrrH1-hvUjEGontjw7gjj2uY2II_imxsy5ItG5VLkbamRVeJNLyWtOB-cK3I&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=s63tCDgbgBveje-CUocUiw&oh=00_AfupuYgjLNGMuZSqQjctztn2HqaDa7cvGDDuNJuPJRl0yg&oe=69854F09');">
+        </div>
+        <div class="title-area">
+          <h1>Amber Vilord</h1>
+          <p>“Intelligence without ambition is a bird without wings.”
+— Mark Twain</p>
+        </div>
+      </div>
+
+      <div class="nav">
+        <a href="#" id="nav-home">Home</a>
+        <a href="#about" id="nav-about">About Me</a>
+        <a href="#contact" id="nav-contact">Contact Links</a>
+        <a href="#achievements" id="nav-achievements">Achievements</a>
+      </div>
+
+      <div class="main">
+        <div class="column-left">
+          <div class="box">
+            <div class="box-header">Amber's Details</div>
+            <div class="box-body">
+              <p><strong>Status:</strong> Senior at University of Missouri–Columbia</p>
+              <p><strong>Location:</strong> Physically in Missouri, mentally in Colorado</p>
+              <p><strong>Interests:</strong> Motocross, rock climbing, kayaking, books, pets, music, fashion, tea</p>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="box-header">Forever Playing</div>
+            <div class="box-body">
+              <div class="music-player">
+                <span>Damocles – Sleep Token</span>
+                <audio id="profile-audio" controls autoplay>
+                  <source src="YOUR_DAMOCLES_FILE_OR_STREAM.mp3" type="audio/mp3">
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="box-header">Amber's Top 5 Books</div>
+            <div class="box-body">
+              <div class="top5-grid">
+                <div class="top5-item">
+                  <div class="top5-rank">#1</div>
+                  <div class="top5-cover" style="background-image:url('https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_568,c_scale/jackets/9781526605399.jpg');"></div>
+                  <span class="top5-title">A Court of Thorns and Roses</span>
+                  <span class="top5-author">Sarah J. Maas</span>
+                </div>
+                <div class="top5-item">
+                  <div class="top5-rank">#2</div>
+                  <div class="top5-cover" style="background-image:url('https://cdn.febqibaimage.com/uploads/195588/cart/resources/20260121/26E8728F-634A-760D-1ABD-FC1A27417E83.jpg?x-oss-process=image/resize,m_lfit,w_812');"></div>
+                  <span class="top5-title">The Assassin's Blade</span>
+                  <span class="top5-author">Sarah J. Maas</span>
+                </div>
+                <div class="top5-item">
+                  <div class="top5-rank">#3</div>
+                  <div class="top5-cover" style="background-image:url('https://s3.amazonaws.com/thumbnails.thecrimson.com/photos/2020/12/08/160243_1347243.tiff.1323x2000_q95_crop-smart_upscale.jpg');"></div>
+                  <span class="top5-title">The Midnight Library</span>
+                  <span class="top5-author">Matt Haig</span>
+                </div>
+                <div class="top5-item">
+                  <div class="top5-rank">#4</div>
+                  <div class="top5-cover" style="background-image:url('https://m.media-amazon.com/images/I/91iqVElB+SL._SL1500_.jpg');"></div>
+                  <span class="top5-title">The Giver</span>
+                  <span class="top5-author">Lois Lowry</span>
+                </div>
+                <div class="top5-item">
+                  <div class="top5-rank">#5</div>
+                  <div class="top5-cover" style="background-image:url('https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781501132933/the-woman-in-cabin-10-9781501132933_hr.jpg');"></div>
+                  <span class="top5-title">The Woman in Cabin 10</span>
+                  <span class="top5-author">Ruth Ware</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column-right">
+          <div class="section" id="about">
+            <h2>Get to Know Me</h2>
+            <p>
+Welcome to my page! My name is Amber Vilord and I am a senior at the University of Missouri-Columbia. I am also a mother to 4, avid motocross rider and expert air fryer chef! I also dabble a bit in hiking, rock climbing and kayaking when my husband can manage to drag me away from a good book. I love my family, pets, music, fashion and a good cup of tea. I'm so glad you're here.
+            </p>
+          </div>
+
+          <div class="section" id="contact">
+            <h2>Contact Links</h2>
+            <div class="contact-icons">
+              <a href="https://www.linkedin.com/in/ambervilord/" target="_blank" rel="noopener" class="contact-icon" aria-label="LinkedIn">
+                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.146 1.146C1.54.752 2.074.5 2.667.5c.593 0 1.127.252 1.52.646.394.394.646.928.646 1.52 0 .593-.252 1.127-.646 1.52-.393.394-.927.646-1.52.646-.593 0-1.127-.252-1.52-.646A2.144 2.144 0 0 1 .5 2.667c0-.593.252-1.127.646-1.52ZM.667 6h4V15H.667V6Zm6 0h3.833v1.242h.054c.533-.96 1.837-1.972 3.783-1.972C15.947 5.27 16 7.57 16 10.18V15h-4V10.63c0-1.043-.02-2.384-1.453-2.384-1.455 0-1.678 1.137-1.678 2.31V15h-4V6Z"/>
+                </svg>
+              </a>
+              <a href="https://www.facebook.com/amber.dawdy.75/" target="_blank" rel="noopener" class="contact-icon" aria-label="Facebook">
+                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 6.5V4.75C9 3.784 9.784 3 10.75 3H12V0H10.5C8.015 0 6 2.015 6 4.5V6.5H4v3h2V16h3V9.5h2.143L12 6.5H9Z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="section" id="achievements">
+            <h2>Achievements</h2>
+            <ul>
+              <li>Inducted as a member of the Tri Alpha and Phi Theta Kappa honors societies</li>
+              <li>Eagle Leader of the Year for Team RWB – 2018</li>
+              <li>Employee of the Quarter at St. Anthony Hospital – 2021</li>
+              <li>Graduated cum laude from Ozarks Technical Community College – 2025</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    document.getElementById("nav-home").addEventListener("click", function (e) {
+      e.preventDefault();
+      window.location.reload();
+    });
+
+    document.getElementById("nav-about").addEventListener("click", function (e) {
+      e.preventDefault();
+      scrollToSection("about");
+    });
+
+    document.getElementById("nav-contact").addEventListener("click", function (e) {
+      e.preventDefault();
+      scrollToSection("contact");
+    });
+
+    document.getElementById("nav-achievements").addEventListener("click", function (e) {
+      e.preventDefault();
+      scrollToSection("achievements");
+    });
+
+    window.addEventListener("load", function () {
+      const audio = document.getElementById("profile-audio");
+      if (audio && audio.paused) {
+        audio.play().catch(() => {});
+      }
+    });
+  </script>
+</body>
+</html>
